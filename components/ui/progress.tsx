@@ -10,24 +10,29 @@ const Progress = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root> & {
     indicatorClassName?: string;
   }
->(({ className, value, indicatorClassName, ...props }, ref) => (
-  <ProgressPrimitive.Root
-    ref={ref}
-    className={cn(
-      'relative h-4 w-full overflow-hidden rounded-full bg-secondary',
-      className
-    )}
-    {...props}
-  >
-    <ProgressPrimitive.Indicator
+>(({ className, value, indicatorClassName, ...props }, ref) => {
+  const safeValue = Math.min(100, Math.max(0, Number(value) || 0));
+
+  return (
+    <ProgressPrimitive.Root
+      ref={ref}
       className={cn(
-        'h-full w-full flex-1 bg-primary transition-all',
-        indicatorClassName
+        'relative h-4 w-full overflow-hidden rounded-full bg-secondary',
+        className
       )}
-      style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
-    />
-  </ProgressPrimitive.Root>
-));
+      {...props}
+    >
+      <ProgressPrimitive.Indicator
+        className={cn(
+          'h-full w-full flex-1 bg-primary transition-all',
+          indicatorClassName
+        )}
+        style={{ transform: `translateX(-${100 - safeValue}%)` }}
+      />
+    </ProgressPrimitive.Root>
+  );
+});
+
 Progress.displayName = ProgressPrimitive.Root.displayName;
 
 export { Progress };

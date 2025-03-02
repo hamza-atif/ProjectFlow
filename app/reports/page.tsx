@@ -13,36 +13,14 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell, Legend } from 'recharts';
 
-interface TimeData {
-  name: string;
-  hours: number;
-}
-
-interface ProjectData {
-  name: string;
-  value: number;
-}
-
-interface ProjectStatusData {
-  name: string;
-  completed: number;
-  remaining: number;
-}
-
-interface TeamProductivityData {
-  name: string;
-  tasks: number;
-  hours: number;
-}
-
-const timeData: TimeData[] = [
+const timeData = [
   { name: 'Week 1', hours: 32 },
   { name: 'Week 2', hours: 40 },
   { name: 'Week 3', hours: 45 },
   { name: 'Week 4', hours: 38 },
 ];
 
-const projectData: ProjectData[] = [
+const projectData = [
   { name: 'Website Redesign', value: 40 },
   { name: 'Mobile App', value: 30 },
   { name: 'Marketing Campaign', value: 20 },
@@ -147,7 +125,7 @@ export default function ReportsPage() {
                       { name: 'Mobile App', completed: 25, remaining: 75 },
                       { name: 'Marketing Campaign', completed: 100, remaining: 0 },
                       { name: 'Internal Tools', completed: 45, remaining: 55 },
-                    ] as ProjectStatusData[]}
+                    ]}
                     margin={{ top: 20, right: 30, left: 100, bottom: 5 }}
                   >
                     <CartesianGrid strokeDasharray="3 3" />
@@ -177,7 +155,7 @@ export default function ReportsPage() {
                       { name: 'Sarah Wilson', tasks: 24, hours: 38 },
                       { name: 'Michael Chen', tasks: 18, hours: 42 },
                       { name: 'Alex Kim', tasks: 15, hours: 35 },
-                    ] as TeamProductivityData[]}
+                    ]}
                     margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
                   >
                     <CartesianGrid strokeDasharray="3 3" />

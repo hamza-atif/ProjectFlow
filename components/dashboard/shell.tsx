@@ -31,13 +31,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Badge } from '@/components/ui/badge';
 
-interface MenuItem {
-  icon: React.ElementType;
-  label: string;
-  href: string;
-}
-
-const menuItems: MenuItem[] = [
+const menuItems = [
   { icon: LayoutDashboard, label: 'Dashboard', href: '/' },
   { icon: Users, label: 'Team', href: '/team' },
   { icon: Calendar, label: 'Projects', href: '/projects' },

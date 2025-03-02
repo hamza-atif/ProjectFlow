@@ -12,15 +12,7 @@ import {
   TooltipTrigger,
 } from '@/components/ui/tooltip';
 
-interface TeamMember {
-  name: string;
-  role: string;
-  avatar: string;
-  status: 'active' | 'busy' | 'offline';
-  availability: string;
-}
-
-const teamMembers: TeamMember[] = [
+const teamMembers = [
   {
     name: 'Sarah Wilson',
     role: 'Product Manager',

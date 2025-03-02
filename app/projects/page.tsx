@@ -16,26 +16,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 
-interface TeamMember {
-  name: string;
-  avatar: string;
-}
-
-interface Project {
-  name: string;
-  description: string;
-  status: 'In Progress' | 'Planning' | 'Completed';
-  progress: number;
-  dueDate: string;
-  team: TeamMember[];
-  tasks: {
-    completed: number;
-    total: number;
-  };
-  priority: 'High' | 'Medium' | 'Low';
-}
-
-const projects: Project[] = [
+const projects = [
   {
     name: 'Website Redesign',
     description: 'Redesign and rebuild the main company website with modern technologies',
@@ -170,7 +151,7 @@ export default function ProjectsPage() {
                     <span className="text-sm">Progress</span>
                     <span className="text-sm">{project.progress}%</span>
                   </div>
-                  <Progress value={project.progress} className="h-2" />
+                  <Progress value={Number(project.progress) || 0} className="h-2" />
                 </div>
               </div>
             </CardContent>

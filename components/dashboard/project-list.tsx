@@ -181,17 +181,18 @@ export function ProjectList() {
                     <div className="flex justify-between mb-1">
                       <span className="text-xs">{project.progress}%</span>
                     </div>
-                    <Progress 
-                      value={project.progress} 
-                      className="h-2" 
+                    <Progress
+                      value={Number(project.progress) || 0}
+                      className="h-2"
                       indicatorClassName={
-                        project.progress === 100 
-                          ? "bg-green-500" 
-                          : project.progress > 50 
-                          ? "bg-blue-500" 
-                          : "bg-amber-500"
+                        project.progress === 100
+                          ? "bg-green-500"
+                          : project.progress > 50
+                            ? "bg-blue-500"
+                            : "bg-amber-500"
                       }
                     />
+
                   </div>
                 </TableCell>
                 <TableCell>
