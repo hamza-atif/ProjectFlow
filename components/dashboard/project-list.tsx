@@ -72,7 +72,7 @@ export function ProjectList() {
   const [sortBy, setSortBy] = useState('dueDate');
   const [sortOrder, setSortOrder] = useState('asc');
 
-  const handleSort = (column) => {
+  const handleSort = (column:any) => {
     if (sortBy === column) {
       setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
     } else {
@@ -92,13 +92,13 @@ export function ProjectList() {
         : b.progress - a.progress;
     } else if (sortBy === 'dueDate') {
       return sortOrder === 'asc' 
-        ? new Date(a.dueDate) - new Date(b.dueDate)
-        : new Date(b.dueDate) - new Date(a.dueDate);
+        ? new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime()
+        : new Date(b.dueDate).getTime() - new Date(a.dueDate).getTime();
     }
     return 0;
   });
 
-  const getSortIndicator = (column) => {
+  const getSortIndicator = (column:any) => {
     if (sortBy !== column) return null;
     return sortOrder === 'asc' ? ' ↑' : ' ↓';
   };
