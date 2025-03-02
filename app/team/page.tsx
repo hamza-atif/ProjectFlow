@@ -7,7 +7,18 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Search, Plus, Mail, Phone, MapPin } from 'lucide-react';
 
-const teamMembers = [
+interface TeamMember {
+  name: string;
+  role: string;
+  email: string;
+  phone: string;
+  location: string;
+  avatar: string;
+  projects: number;
+  tasks: number;
+}
+
+const teamMembers: TeamMember[] = [
   {
     name: 'Sarah Wilson',
     role: 'Product Manager',

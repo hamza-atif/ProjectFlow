@@ -16,7 +16,26 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 
-const projects = [
+interface TeamMember {
+  name: string;
+  avatar: string;
+}
+
+interface Project {
+  name: string;
+  description: string;
+  status: 'In Progress' | 'Planning' | 'Completed';
+  progress: number;
+  dueDate: string;
+  team: TeamMember[];
+  tasks: {
+    completed: number;
+    total: number;
+  };
+  priority: 'High' | 'Medium' | 'Low';
+}
+
+const projects: Project[] = [
   {
     name: 'Website Redesign',
     description: 'Redesign and rebuild the main company website with modern technologies',

@@ -10,6 +10,20 @@ import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
 import { Calendar, Clock, Users, CheckSquare, AlertTriangle } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
+interface TaskData {
+  name: string;
+  value: number;
+}
+
+interface StatItem {
+  title: string;
+  value: string;
+  icon: React.ElementType;
+  change: string;
+  color: string;
+  iconColor: string;
+}
+
 const COLORS = ['hsl(var(--chart-1))', 'hsl(var(--chart-2))', 'hsl(var(--chart-3))'];
 
 export default function Home() {
@@ -19,7 +33,7 @@ export default function Home() {
     setMounted(true);
   }, []);
 
-  const stats = [
+  const stats: StatItem[] = [
     { 
       title: 'Active Projects', 
       value: '3', 
@@ -54,7 +68,7 @@ export default function Home() {
     }
   ];
 
-  const taskData = [
+  const taskData: TaskData[] = [
     { name: 'Completed', value: 24 },
     { name: 'In Progress', value: 12 },
     { name: 'Not Started', value: 8 },
@@ -118,7 +132,7 @@ export default function Home() {
                       ))}
                     </Pie>
                     <Tooltip 
-                      formatter={(value, name) => [`${value} tasks`, name]}
+                      formatter={(value: number, name: string) => [`${value} tasks`, name]}
                       contentStyle={{ 
                         borderRadius: '8px', 
                         border: '1px solid hsl(var(--border))',

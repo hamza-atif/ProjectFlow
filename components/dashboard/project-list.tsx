@@ -30,7 +30,22 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { useState } from 'react';
 
-const projects = [
+interface TeamMember {
+  name: string;
+  avatar: string;
+}
+
+interface Project {
+  id: number;
+  name: string;
+  status: 'In Progress' | 'Planning' | 'Completed';
+  progress: number;
+  dueDate: string;
+  team: TeamMember[];
+  priority: 'High' | 'Medium' | 'Low';
+}
+
+const projects: Project[] = [
   {
     id: 1,
     name: 'Website Redesign',
@@ -68,11 +83,14 @@ const projects = [
   },
 ];
 
-export function ProjectList() {
-  const [sortBy, setSortBy] = useState('dueDate');
-  const [sortOrder, setSortOrder] = useState('asc');
+type SortColumn = 'name' | 'progress' | 'dueDate';
+type SortOrder = 'asc' | 'desc';
 
-  const handleSort = (column:any) => {
+export function ProjectList() {
+  const [sortBy, setSortBy] = useState<SortColumn>('dueDate');
+  const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
+
+  const handleSort = (column: SortColumn) => {
     if (sortBy === column) {
       setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
     } else {
@@ -98,7 +116,7 @@ export function ProjectList() {
     return 0;
   });
 
-  const getSortIndicator = (column:any) => {
+  const getSortIndicator = (column: SortColumn) => {
     if (sortBy !== column) return null;
     return sortOrder === 'asc' ? ' ↑' : ' ↓';
   };

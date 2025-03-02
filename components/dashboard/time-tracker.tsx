@@ -13,17 +13,22 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 
+interface TimeSession {
+  project: string;
+  duration: number;
+}
+
 export function TimeTracker() {
-  const [isRunning, setIsRunning] = useState(false);
-  const [time, setTime] = useState(0);
-  const [project, setProject] = useState('');
-  const [recentSessions, setRecentSessions] = useState([
+  const [isRunning, setIsRunning] = useState<boolean>(false);
+  const [time, setTime] = useState<number>(0);
+  const [project, setProject] = useState<string>('');
+  const [recentSessions, setRecentSessions] = useState<TimeSession[]>([
     { project: 'Website Redesign', duration: 3600 },
     { project: 'Mobile App', duration: 1800 },
   ]);
 
   useEffect(() => {
-    let timerId = null;
+    let timerId: NodeJS.Timeout | null = null;
     
     if (isRunning) {
       // Using a simple setTimeout-based approach instead of setInterval
@@ -69,11 +74,11 @@ export function TimeTracker() {
     }
   };
 
-  const handleProjectChange = (value) => {
+  const handleProjectChange = (value: string) => {
     setProject(value);
   };
 
-  const resumeSession = (sessionProject, sessionDuration) => {
+  const resumeSession = (sessionProject: string, sessionDuration: number) => {
     setProject(sessionProject);
     setTime(sessionDuration);
   };

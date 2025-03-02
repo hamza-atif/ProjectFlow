@@ -131,4 +131,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-Built with ❤️ by Hamza Atif
+Built with ❤️ by [Your Name]

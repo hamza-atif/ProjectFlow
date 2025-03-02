@@ -13,7 +13,17 @@ import {
 import { Calendar } from '@/components/ui/calendar';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-const timeData = [
+interface TimeData {
+  name: string;
+  hours: number;
+}
+
+interface ProjectTimeData {
+  project: string;
+  hours: number;
+}
+
+const timeData: TimeData[] = [
   { name: 'Mon', hours: 7.5 },
   { name: 'Tue', hours: 8 },
   { name: 'Wed', hours: 6.5 },
@@ -23,7 +33,7 @@ const timeData = [
   { name: 'Sun', hours: 2 },
 ];
 
-const projectTimeData = [
+const projectTimeData: ProjectTimeData[] = [
   { project: 'Website Redesign', hours: 24 },
   { project: 'Mobile App', hours: 18 },
   { project: 'Marketing Campaign', hours: 12 },
