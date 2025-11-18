@@ -84,15 +84,6 @@ project-flow/
 ├── tailwind.config.ts    # Tailwind CSS configuration
 └── tsconfig.json         # TypeScript configuration
 ```
-
-## Deployment
-
-This project can be deployed on any platform that supports Next.js applications, such as:
-
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
-- [AWS Amplify](https://aws.amazon.com/amplify/)
-
 ## Customization
 
 ### Themes
