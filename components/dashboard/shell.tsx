@@ -93,7 +93,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
         </div>
         <nav className="space-y-1 p-4">
           {menuItems.map((item) => (
-            <Link key={item.label} href={item.href} passHref>
+            <Link key={item.label} href={item.href}>
               <Button
                 variant={pathname === item.href ? 'secondary' : 'ghost'}
                 className="w-full justify-start gap-2 transition-all hover:translate-x-1"
