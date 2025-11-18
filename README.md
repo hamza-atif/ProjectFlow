@@ -15,7 +15,6 @@ ProjectFlow is a modern, enterprise-grade project management solution designed f
 - **Detailed Reports**: Generate comprehensive reports on projects, time, and team performance
 - **Responsive Design**: Works seamlessly across desktop, tablet, and mobile devices
 - **Dark/Light Mode**: Choose between dark and light themes based on your preference
-
 ## Tech Stack
 
 - **Framework**: [Next.js](https://nextjs.org/)
